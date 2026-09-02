@@ -14,7 +14,7 @@ public class LoginPage extends BasePage {
     private By loginButton = By.cssSelector("input[data-test='login-button']");
     private By errorMessage = By.cssSelector("h3[data-test='error']");
 
-    // getter, setter, transition, convinience 
+    // getter, setter, transition, convinience(not needed) 
 
     public void inputUsername(String username) {
         input(usernameField, username);
@@ -31,11 +31,5 @@ public class LoginPage extends BasePage {
 
     public String getErrorMessage() {
         return find(errorMessage).getText();
-    }
-
-    public ProductsPage logIntoProductsPage(String username, String password) {
-        inputUsername(username);
-        inputPassword(password);
-        return clickLoginButton();
     }
 }
