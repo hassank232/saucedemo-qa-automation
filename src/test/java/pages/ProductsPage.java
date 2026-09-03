@@ -6,16 +6,16 @@ import org.openqa.selenium.WebDriver;
 
 public class ProductsPage extends BasePage {
 
-    private By pageTitle = By.cssSelector("span[data-test='title']");
+    private By productsPageTitle = By.cssSelector("span[data-test='title']");
     private By totalCartItems = By.cssSelector("span[data-test='shopping-cart-badge']");
-
+    private By goToCartButton = By.cssSelector("a[data-test='shopping-cart-link']");
 
     public ProductsPage(WebDriver driver) {
         super(driver);
     }
 
-    public String getPageTitle() {
-        return find(pageTitle).getText();
+    public String getProductsPageTitle() {
+        return find(productsPageTitle).getText();
     }
 
     public void addItemToCart(String itemName) {
@@ -35,5 +35,10 @@ public class ProductsPage extends BasePage {
         catch (NoSuchElementException e) {
             return 0;
         }
+    }
+
+    public CartsPage goToCart() {
+        click(goToCartButton);
+        return new CartsPage(driver);
     }
 }

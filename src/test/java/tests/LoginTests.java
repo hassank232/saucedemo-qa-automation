@@ -39,7 +39,7 @@ public class LoginTests extends BaseTest {
 
         // assert (expected, actual)
         if(expectedResult.equals("success")) {
-            Assertions.assertEquals("Products", product.getPageTitle());
+            Assertions.assertEquals("Products", product.getProductsPageTitle());
         }
         else if(expectedResult.equals("locked_out_error")) {
             Assertions.assertEquals(LOCKED_OUT_ERROR, login.getErrorMessage());

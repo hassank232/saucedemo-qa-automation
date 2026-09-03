@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import pages.CartsPage;
 import pages.LoginPage;
 import pages.ProductsPage;
 
@@ -13,11 +14,13 @@ public class ProductsTests extends BaseTest {
 
     LoginPage login;
     ProductsPage product;
+    CartsPage cart;
     
     @BeforeEach
     public void setupProductsPage() {
         login = new LoginPage(driver);
         product = new ProductsPage(driver);
+        cart = new CartsPage(driver);
 
         login.inputUsername("standard_user");
         login.inputPassword("secret_sauce");
@@ -27,7 +30,7 @@ public class ProductsTests extends BaseTest {
     @Test
     public void testAddToCart() {
 
-        //Arrange - done by @beforeeach
+        // Arrange - done by @beforeeach
 
         // Act
         product.addItemToCart("Sauce Labs Backpack");
@@ -48,4 +51,16 @@ public class ProductsTests extends BaseTest {
         // Assert
         Assertions.assertEquals(0, product.getCartCount());
     }    
+
+    @Test
+    public void testCartButton() throws InterruptedException {
+
+        // Arrange - done by @beforeeach
+
+        // Act
+        product.goToCart();
+
+        // Assert 
+        Assertions.assertEquals("Your Cart", cart.getCartsPageTitle());
+    }
 }
