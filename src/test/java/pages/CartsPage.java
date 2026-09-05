@@ -26,8 +26,8 @@ public class CartsPage extends BasePage {
         return find(itemPrice).getText();
     }
 
-    public CheckoutPage gotoCheckout() {
+    public CheckoutInfoPage gotoCheckout() {
         click(checkout);
-        return new CheckoutPage(driver);
+        return new CheckoutInfoPage(driver);
     }
 }

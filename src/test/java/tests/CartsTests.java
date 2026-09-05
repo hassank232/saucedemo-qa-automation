@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import pages.CartsPage;
-import pages.CheckoutPage;
+import pages.CheckoutInfoPage;
 import pages.LoginPage;
 import pages.ProductsPage;
 
@@ -16,7 +16,7 @@ public class CartsTests extends BaseTest {
     LoginPage login;
     ProductsPage product;
     CartsPage cart;
-    CheckoutPage checkout;
+    CheckoutInfoPage checkout;
 
     private static final String ITEM_TO_TEST = "Sauce Labs Backpack";
     private static final String CHECKOUT_TITLE = "Checkout: Your Information";
@@ -27,7 +27,7 @@ public class CartsTests extends BaseTest {
         login = new LoginPage(driver);
         product = new ProductsPage(driver);
         cart = new CartsPage(driver);
-        checkout = new CheckoutPage(driver);
+        checkout = new CheckoutInfoPage(driver);
 
         login.inputUsername("standard_user");
         login.inputPassword("secret_sauce");
@@ -68,6 +68,6 @@ public class CartsTests extends BaseTest {
         cart.gotoCheckout();
         
         // Assert
-        Assertions.assertEquals(CHECKOUT_TITLE, checkout.getCheckoutPageTitle());
+        Assertions.assertEquals(CHECKOUT_TITLE, checkout.getCheckoutInfoPageTitle());
     }
 }
